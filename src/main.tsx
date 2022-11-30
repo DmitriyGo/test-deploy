@@ -7,7 +7,7 @@ import Asd from "./components/asd";
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
-        <HashRouter>
+        <HashRouter basename='/'>
             <Routes>
                 <Route index element={<App/>}/>
                 <Route path='/asd' element={<Asd/>}/>
