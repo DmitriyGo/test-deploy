@@ -4,13 +4,17 @@ import App from './App'
 import './index.css'
 import {HashRouter, Route, Routes} from "react-router-dom";
 import Asd from "./components/asd";
+import Layout from "./components/Layout";
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
         <HashRouter>
             <Routes>
-                <Route path='/' element={<App/>}/>
-                <Route path='/asd' element={<Asd/>}/>
+                <Route path='/' element={<Layout/>}>
+                    <Route index element={<App/>}/>
+                    <Route path='/asd' element={<Asd/>}/>
+                    <Route path='/qwe' element={<Asd/>}/>
+                </Route>
             </Routes>
         </HashRouter>
     </React.StrictMode>
