@@ -1,4 +1,4 @@
-# Setup CI/CD for React project with GitHub Pages, GitHub Actions and Vite
+# Setup CI/CD for React project with GitHub Pages, GitHub Actions and Vite/cra
 
 ### Client-side routing
 Projects with react-router-dom library should use [HashRoueter](https://reactrouter.com/en/main/router-components/hash-router) instead of BrowserRouter
@@ -14,20 +14,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         </Routes>
     </HashRouter>
 )
-
 ```
-###vite.config.ts
 
-```ts
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-  base: '/<repo>/'
-})
-```
 
 ### package.json
 ```json
@@ -57,5 +45,19 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist
+          folder: dist # depends on project configurations
+```
+
+## For projects builded with Vite:
+### vite.config.ts
+
+```ts
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  base: '/<repo>/'
+})
 ```
